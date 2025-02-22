@@ -80,10 +80,11 @@ def process_uploaded_file(uploaded_file):
 
 def main():
     st.title("ICE Warrant Analyzer")
+    st.write("This is an experimental tool to analyze ICE warrants using an AI tool from Google. The data you submit may be used by Google for training purposes.")
     st.write("Upload an image (JPEG/PNG) or PDF of the warrant, or capture one using your camera.")
 
     # Select input method.
-    input_method = st.radio("Select input method:", ("Upload File", "Capture Image"))
+    input_method = st.radio("Choose input method:", ("Upload File", "Capture Image"))
 
     uploaded_file = None
     if input_method == "Upload File":
