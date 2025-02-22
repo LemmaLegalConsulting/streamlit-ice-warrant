@@ -1,3 +1,4 @@
 google-genai
 pillow
 streamlit
+gradio
