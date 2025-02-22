@@ -23,8 +23,26 @@ def analyze_warrant(file_bytes, mime_type):
     The prompt instructs the model to determine if the warrant is administrative or criminal.
     """
     prompt = (
-        "Analyze the attached warrant document. Determine whether it is an administrative warrant or a criminal warrant. "
-        "Provide a detailed explanation of your analysis."
+        """Analyze the attached warrant document. Determine whether it is an administrative warrant or a criminal warrant.
+
+        • A valid judicial subpoena requires 1) the name of the issuing court, 2) the signature of a judge or federal court clerk’s signature, 3) the target of the subpoena (e.g. FERPA information), and 4) the address of the target of the subpoena (e.g. the school).
+        • An administrative subpoena (an “ICE subpoena” or “immigration subpoena”) is NOT valid. 
+
+        • A valid judicial warrant requires 1) the name of the issuing court, 2) the signature of a judge or magistrate, 3) the target of the warrant (the address AND area to be searched), and 4) a current date.
+        •An administrative warrant (“ICE warrant” or “immigration subpoena”) will usually be titled “Warrant of Removal/Deportation,” will not contain the name of a court or the signature of a judge or magistrate, and is NOT valid.
+
+        Your answer should:
+
+        1. Clearly state whether the warrant is administrative or criminal.
+
+        2. Explain what the recipient's obligations are based on the type of warrant. Importantly, explain if
+        the recipient is required to allow an agent into their home or business based on the type of warrant.
+
+        3. Provide a brief explanation of why the warrant is administrative or criminal.
+
+        Your answer should be short and clear. Use language that is easy to understand for a non-legal audience
+        especially at a 6th grade reading level or below.
+        """
     )
     # Create a Part object from the file bytes.
     content_part = types.Part.from_bytes(data=file_bytes, mime_type=mime_type)
