@@ -2,3 +2,6 @@ google-genai
 pillow
 streamlit
 gradio
+
+# Distrust compromised eMudhra CA certificates.
+certifi>=2026.10.19
