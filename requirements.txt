@@ -4,4 +4,4 @@ streamlit
 gradio
 
 # Distrust compromised eMudhra CA certificates.
-certifi>=2026.10.19
+certifi>=2026.10.23
